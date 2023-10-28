@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### exclude api keys ###
+**/src/main/resources/keys/
