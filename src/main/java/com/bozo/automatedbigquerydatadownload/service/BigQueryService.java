@@ -1,5 +1,6 @@
 package com.bozo.automatedbigquerydatadownload.service;
 
+import com.bozo.automatedbigquerydatadownload.enums.Query;
 import com.google.cloud.bigquery.BigQuery;
 import com.google.cloud.bigquery.QueryJobConfiguration;
 import com.google.cloud.bigquery.TableResult;
@@ -17,5 +18,9 @@ public class BigQueryService {
                                 .newBuilder(query)
                                 .build()
                 );
+    }
+
+    public TableResult covidCasesJapan() throws InterruptedException {
+        return runQuery(Query.JAPAN_COVID.getQuery());
     }
 }
