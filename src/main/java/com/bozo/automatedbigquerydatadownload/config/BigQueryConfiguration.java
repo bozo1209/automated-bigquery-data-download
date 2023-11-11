@@ -4,6 +4,7 @@ import com.google.auth.oauth2.GoogleCredentials;
 import com.google.auth.oauth2.ServiceAccountCredentials;
 import com.google.cloud.bigquery.BigQuery;
 import com.google.cloud.bigquery.BigQueryOptions;
+import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
@@ -16,6 +17,7 @@ public class BigQueryConfiguration {
     private final String PROJECT_ID = "mydatabasetest-392022";
     private final String KEY_PATH = "keys/gq-key.json";
 
+    @Bean
     public BigQuery getBigQuery(){
         return BigQueryOptions
                 .newBuilder()

@@ -4,8 +4,10 @@ import com.bozo.automatedbigquerydatadownload.enums.Query;
 import com.google.cloud.bigquery.BigQuery;
 import com.google.cloud.bigquery.QueryJobConfiguration;
 import com.google.cloud.bigquery.TableResult;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+@AllArgsConstructor
 @Service
 public class BigQueryService {
 
