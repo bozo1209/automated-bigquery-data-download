@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Covid Cases Japan</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th th:each="header : ${tableHeaders}" th:text="${header.name}"></th>
+    </tr>
+    <tr th:each="value, iStat : ${tableValues}">
+        <td th:text="${__${iStat.index}__ + 1}"></td>
+        <td th:text="${value.value}"></td>
+    </tr>
+</table>
+</body>
+</html>
