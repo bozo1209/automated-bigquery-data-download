@@ -9,9 +9,9 @@
     <tr>
         <th th:each="header : ${tableHeaders}" th:text="${header.name}"></th>
     </tr>
-    <tr th:each="value, iStat : ${tableValues}">
+    <tr th:each="row, iStat : ${tableValues}">
         <td th:text="${__${iStat.index}__ + 1}"></td>
-        <td th:text="${value.value}"></td>
+        <td th:each="value : ${row}" th:text="${value.value}"></td>
     </tr>
 </table>
 </body>
