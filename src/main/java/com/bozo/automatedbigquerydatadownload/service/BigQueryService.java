@@ -6,6 +6,7 @@ import com.google.cloud.bigquery.QueryJobConfiguration;
 import com.google.cloud.bigquery.TableResult;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.thymeleaf.TemplateEngine;
 
 @AllArgsConstructor
 @Service
@@ -24,5 +25,9 @@ public class BigQueryService {
 
     public TableResult covidCasesJapan() throws InterruptedException {
         return runQuery(Query.JAPAN_COVID.getQuery());
+    }
+
+    public TableResult covidCasesJapanWithPrefecture(String prefecture) throws InterruptedException{
+        return runQuery(Query.JAPAN_COVID_PREFECTURE.getQuery().replaceAll("\\$\\{prefectureName\\}", prefecture));
     }
 }
