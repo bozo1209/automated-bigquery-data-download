@@ -1,7 +1,8 @@
 package com.bozo.automatedbigquerydatadownload.enums;
 
 public enum Query {
-    JAPAN_COVID("SELECT * FROM `bigquery-public-data.covid19_public_forecasts.japan_prefecture_28d` LIMIT 10;");
+    JAPAN_COVID("SELECT * FROM `bigquery-public-data.covid19_public_forecasts.japan_prefecture_28d` LIMIT 10;"),
+    JAPAN_COVID_PREFECTURE("SELECT * FROM `bigquery-public-data.covid19_public_forecasts.japan_prefecture_28d` where prefecture_name = 'Miyazaki' LIMIT 100;");
 
     private final String query;
 
