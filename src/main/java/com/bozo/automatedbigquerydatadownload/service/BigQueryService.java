@@ -8,6 +8,7 @@ import com.google.cloud.bigquery.TableResult;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 @AllArgsConstructor
@@ -52,5 +53,9 @@ public class BigQueryService {
 
     public TableResult covidCasesJapanWithPrefecture(String prefecture) throws InterruptedException{
         return runQuery(Query.JAPAN_COVID_PREFECTURE.getQuery(), Map.of("prefecture_name", prefecture));
+    }
+
+    public TableResult covidCasesJapanWithPrefectureList(List<String> prefectures) throws InterruptedException{
+        return runQuery(Query.JAPAN_COVID_PREFECTURES.getQuery(), Map.of("prefecture_names", prefectures.toArray(String[]::new)));
     }
 }
