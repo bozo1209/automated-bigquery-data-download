@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Multiple prefectures</title>
+</head>
+<body>
+<form action="#" th:action="@{/covid_cases_japan/prefectures}" th:object="${prefecture}" method="post">
+    <p>Prefecture name: <textarea type="text" th:field="*{name}"></textarea></p>
+    <p><input type="submit" value="submit"></p>
+</form>
+<br><hr><br>
+<table>
+    <tr>
+        <th th:each="header : ${tableHeaders}" th:text="${header.name}"></th>
+    </tr>
+    <tr th:each="row, iStat : ${tableValues}">
+        <td th:text="${__${iStat.index}__ + 1}"></td>
+        <td th:each="value : ${row}" th:text="${value.value}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
